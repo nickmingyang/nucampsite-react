@@ -80,6 +80,7 @@ class CommentForm extends Component {
                     name="rating"
                     className="form-control"
                   >
+                    <option>Please Select</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
