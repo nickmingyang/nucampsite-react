@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import {
   Card,
   CardImg,
-  CardImgOverlay,
   CardText,
   CardBody,
-  CardTitle,
   Breadcrumb,
   BreadcrumbItem,
   Button,
@@ -19,7 +17,7 @@ import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
-import { FadeTransform, Fade, Stagger } from "react-animation-components";
+import { FadeTransform, Fade, Stagger, Loop } from "react-animation-components";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -224,7 +222,12 @@ function CampsiteInfo(props) {
               </BreadcrumbItem>
               <BreadcrumbItem active>{props.campsite.name}</BreadcrumbItem>
             </Breadcrumb>
-            <h2>{props.campsite.name}</h2>
+            <Loop in iterations={10}>
+              <Fade>
+              <h2>{props.campsite.name}</h2>
+              </Fade>
+            </Loop>
+            
             <hr />
           </div>
         </div>
